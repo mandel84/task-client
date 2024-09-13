@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import apiBaseUrl from '../apiConfig';
 
 const ProjectDelete = () => {
   const { id } = useParams();
@@ -10,7 +11,7 @@ const ProjectDelete = () => {
   useEffect(() => {
     axios
       // .get(`https://jorge-mhex.onrender.com/${id}`)
-      .get(`https://task-app-manager-kosr.onrender.com/${id}`)
+      .get(`${apiBaseUrl}/${id}`)
       .then((response) => setProject(response.data))
       .catch((error) => console.error("Error fetching project:", error));
   }, [id]);
@@ -18,7 +19,7 @@ const ProjectDelete = () => {
   const handleDelete = () => {
     axios
       // .delete(`https://jorge-mhex.onrender.com/${id}`)
-      .delete(`https://task-app-manager-kosr.onrender.com/${id}`)
+      .delete(`${apiBaseUrl}/${id}`)
       .then(() => {
         navigate("/projects");
       })

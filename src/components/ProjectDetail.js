@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import apiBaseUrl from '../apiConfig';
+
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -11,7 +13,7 @@ const ProjectDetail = () => {
   useEffect(() => {
     axios
       // .get(`https://jorge-mhex.onrender.com/${id}`)
-      .get(`https://task-app-manager-kosr.onrender.com/${id}`)
+      .get(`${apiBaseUrl}/${id}`)
       .then((response) => {
         setProject(response.data);
         setLoading(false);

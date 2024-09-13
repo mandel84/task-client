@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import apiBaseUrl from '../apiConfig';
+
 
 const UpdateTaskForm = () => {
   const { id } = useParams();
@@ -16,7 +18,7 @@ const UpdateTaskForm = () => {
   useEffect(() => {
     axios
       // .get(`https://jorge-mhex.onrender.com/api/tasks/${id}`)
-      .get(`https://task-app-manager-kosr.onrender.com/api/tasks/${id}`)
+      .get(`${apiBaseUrl}/api/tasks/${id}`)
       .then((response) => setTask(response.data))
       .catch((error) => console.error("Error fetching task:", error))
   }, [id]);
@@ -33,7 +35,7 @@ const UpdateTaskForm = () => {
     e.preventDefault();
     axios
       // .put(`https://jorge-mhex.onrender.com/api/tasks/${id}`, task)
-      .put(`https://task-app-manager-kosr.onrender.com/api/tasks/${id}`, task)
+      .put(`${apiBaseUrl}/api/tasks/${id}`, task)
       .then(() => {
         navigate("/");
       })

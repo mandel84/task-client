@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios, { spread } from "axios";
+import apiBaseUrl from '../apiConfig';
+
 
 const TaskDelete = () => {
   const { id } = useParams();
@@ -10,7 +12,7 @@ const TaskDelete = () => {
   useEffect(() => {
     axios
       // .get(`https://jorge-mhex.onrender.com/api/tasks')/${id}`)
-      .get(`https://task-app-manager-kosr.onrender.com/api/tasks')/${id}`)
+      .get(`${apiBaseUrl}/api/tasks')/${id}`)
       .then((response) => setTask(response.data))
       .catch((error) => console.error("Error fetching task:", error));
   }, [id]);
@@ -18,7 +20,7 @@ const TaskDelete = () => {
   const handleDelete = () => {
     axios
       // .delete(`https://jorge-mhex.onrender.com/api/tasks')/${id}`)
-      .delete(`https://task-app-manager-kosr.onrender.com/api/tasks')/${id}`)
+      .delete(`${apiBaseUrl}/api/tasks')/${id}`)
       .then(() => {
         navigate("/");
       })

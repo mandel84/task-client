@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import apiBaseUrl from '../apiConfig';
+
 
 const TaskForm = () => {
   const [title, setTitle] = useState("");
@@ -13,7 +15,7 @@ const TaskForm = () => {
 
   useEffect(() => {
     axios
-      .get("https://jorge-mhex.onrender.com/api/tasks")
+      .get(`${apiBaseUrl}/api/tasks`)
       .then((response) => setProjects(response.data))
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
@@ -31,7 +33,7 @@ const TaskForm = () => {
     console.log("Submitting task:", newTask);
     axios
       // .post("https://jorge-mhex.onrender.com/api/tasks", newTask)
-      .post("https://task-app-manager-kosr.onrender.com/api/tasks", newTask)
+      .post(`${apiBaseUrl}/api/tasks`, newTask)
       .then(() => {
         navigate("/");
       })

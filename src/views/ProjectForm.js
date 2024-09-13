@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import apiBaseUrl from '../apiConfig';
+
 
 const ProjectForm = () => {
   const [name, setName] = useState("");
@@ -13,7 +15,7 @@ const ProjectForm = () => {
 
     axios
       // .post("https://jorge-mhex.onrender.com/api/tasks", newProject)
-      .post("https://task-app-manager-kosr.onrender.com/api/tasks", newProject)
+      .post(`${apiBaseUrl}/api/tasks`, newProject)
       .then(() => {
         navigate("/projects");
       })

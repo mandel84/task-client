@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import apiBaseUrl from '../apiConfig';
+
 
 const TaskEdit = () => {
   const { id } = useParams();
@@ -13,7 +15,7 @@ const TaskEdit = () => {
 
   useEffect(() => {
     axios
-      .get(`https://jorge-mhex.onrender.com/api/tasks/${id}`)
+      .get(`${apiBaseUrl}/api/tasks/${id}`)
       .then((response) => {
         const { title, description, dueDate, priority, projectId } =
           response.data;
@@ -32,7 +34,7 @@ const TaskEdit = () => {
 
     axios
       // .put(`https://jorge-mhex.onrender.com/api/tasks/${id}`, updatedTask)
-      .put(`https://task-app-manager-kosr.onrender.com/api/tasks/${id}`, updatedTask)
+      .put(`${apiBaseUrl}/api/tasks/${id}`, updatedTask)
       .then(() => {
         navigate("/");
       })
