@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/tasks/edit/:id" element={<TaskEdit />} /> 
         <Route path="/tasks/delete/:id" element={<TaskDelete />} />
         <Route path="/projects/delete/:id" element={<ProjectDelete />} />
-
+        <Route path="*" element={<h2>404: Page Not Found</h2>} />
 
       </Routes>
       </div>

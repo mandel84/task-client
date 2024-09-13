@@ -14,8 +14,7 @@ const ProjectForm = () => {
     const newProject = { name, description };
 
     axios
-      // .post("https://jorge-mhex.onrender.com/api/tasks", newProject)
-      .post(`${apiBaseUrl}/api/tasks`, newProject)
+      .post(`${apiBaseUrl}/api/projects`, newProject)
       .then(() => {
         navigate("/projects");
       })

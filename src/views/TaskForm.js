@@ -32,7 +32,6 @@ const TaskForm = () => {
 
     console.log("Submitting task:", newTask);
     axios
-      // .post("https://jorge-mhex.onrender.com/api/tasks", newTask)
       .post(`${apiBaseUrl}/api/tasks`, newTask)
       .then(() => {
         navigate("/");

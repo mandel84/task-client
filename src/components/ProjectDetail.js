@@ -12,8 +12,7 @@ const ProjectDetail = () => {
 
   useEffect(() => {
     axios
-      // .get(`https://jorge-mhex.onrender.com/${id}`)
-      .get(`${apiBaseUrl}/${id}`)
+      .get(`${apiBaseUrl}/api/projects/${id}`)
       .then((response) => {
         setProject(response.data);
         setLoading(false);

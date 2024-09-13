@@ -10,16 +10,14 @@ const ProjectDelete = () => {
 
   useEffect(() => {
     axios
-      // .get(`https://jorge-mhex.onrender.com/${id}`)
-      .get(`${apiBaseUrl}/${id}`)
+      .get(`${apiBaseUrl}/api/projects/${id}`)
       .then((response) => setProject(response.data))
       .catch((error) => console.error("Error fetching project:", error));
   }, [id]);
 
   const handleDelete = () => {
     axios
-      // .delete(`https://jorge-mhex.onrender.com/${id}`)
-      .delete(`${apiBaseUrl}/${id}`)
+      .delete(`${apiBaseUrl}/api/projects/${id}`)
       .then(() => {
         navigate("/projects");
       })

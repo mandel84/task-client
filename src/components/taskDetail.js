@@ -12,7 +12,6 @@ const TaskDetail = () => {
 
   useEffect(() => {
     axios
-      // .get(`https://jorge-mhex.onrender.com/api/tasks/${id}`)
       .get(`${apiBaseUrl}/api/tasks/${id}`)
       .then((response) => {
         setTask(response.data);
